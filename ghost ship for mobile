@@ -85,3 +85,21 @@ beanButton.MouseButton1Click:Connect(function()
         warn("HumanoidRootPartが見つかりません。")
     end
 end)
+
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.G then
+            local hrp = getHumanoidRootPart()
+            if hrp then
+                hrp.CFrame = CFrame.new(2284, 15, 911)
+                print("テレポート：HederaAnaruGod（Gキー）")
+            else
+                warn("HumanoidRootPartが見つかりません。")
+            end
+        end
+    end
+end)
