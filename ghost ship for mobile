@@ -63,6 +63,24 @@ ghostButton.MouseButton1Click:Connect(function()
     end
 end)
 
+local UserInputService = game:GetService("UserInputService")
+
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+    if gameProcessedEvent then return end
+
+    if input.UserInputType == Enum.UserInputType.Keyboard then
+        if input.KeyCode == Enum.KeyCode.H then
+            local hrp = getHumanoidRootPart()
+            if hrp then
+                hrp.CFrame = CFrame.new(938, 249, 32888)
+                print("テレポート：HederaAnaruGod（Hキー）")
+            else
+                warn("HumanoidRootPartが見つかりません。")
+            end
+        end
+    end
+end)
+
 -- まめつぶぐみ テレポートボタン
 local beanButton = Instance.new("TextButton")
 beanButton.Size = UDim2.new(0, 150, 0, 50)
